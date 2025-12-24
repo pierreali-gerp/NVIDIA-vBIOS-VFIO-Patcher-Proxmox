@@ -59,8 +59,17 @@ I just added a brief Preparation section below for users who need to dump their 
    ```
 5. **Re-enable Secure Boot on your system if you previously disabled it.** From now on, you can turn Secure Boot back on if you wish. To do so, reboot your system, enter the UEFI settings, and revert the changes you made in step 1.
 
-6. Follow the instructions in the next section to patch the saved ROM through Matoking's Python script.
+6. **Patch the original ROM**. Follow the instructions in the [Usage](README.md#usage) section to patch the saved ROM through Matoking's Python script.
    >⚠️ As a general security good practice, **never run scripts downloaded from the internet as root**! So log in on Proxmox with a non-root user (or create a new one with `useradd <username> -d <pathToUserHome> --shell /bin/bash` if you haven't yet) before following the instructions below.
+   As root user, copy the patched ROM to the path where Proxmox expects to find it: `/usr/share/kvm`.
+
+7. **Instruct QEMU to use the patched ROM to perform the PCI-passthrough on Proxmox**. After adding the GPU as a PCIe Device to the VM of interest through the Proxmox WebUI, edit the VM configuration file at `/etc/pve/qemu-server` by adding the option `romfile=<rom_file_name>` to the _hostpciN_ line related to the GPU entry. Note that the ROM file must be placed in the path mentioned in the previous step, as you cannot specify a custom path for the _romfile_ option. Your final _hostpci_ configuration should look like this:
+   ```
+   hostpci0: 0000:01:00,pcie=1,x-vga=1,romfile=vbios_gtx1070_patched.rom
+   ```
+
+8. Now it should be possible to start the VM as usual from the WebUI!
+
 
 # NVIDIA vBIOS VFIO Patcher instructions
 **This tool is known to be compatible only with the Pascal series (1xxx) of NVIDIA GPUs.**
