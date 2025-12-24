@@ -2,7 +2,7 @@
 
 All credit goes to [Matoking](https://github.com/Matoking) for providing their super-convenient Python script.
 
-I just added a brief Preparation section below for users who need to dump their NVIDIA (Pascal series) ROM from Proxmox. This is actually very simple, since Proxmox doesn't run any processes on discrete GPUs by default, such as desktop managers. On the contrary, if you need to dump your GPU's ROM from a Linux distro with a desktop manager running (i.e., any Linux distro with a Graphical User Interface in use), follow the instructions at [this link](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/6)-Preparation-and-placing-of-the-ROM-file#dumping-your-gpu-rom).
+I just added a brief Preparation section below for users who need to dump their NVIDIA (Pascal series) ROM from Proxmox. This is actually very simple, since Proxmox doesn't run any processes on discrete GPUs by default, such as desktop managers. On the contrary, if you need to dump your GPU's ROM from a Linux distro with a desktop manager running (i.e., any Linux distro with a Graphical User Interface in use), follow the instructions at [this link](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/6\)-Preparation-and-placing-of-the-ROM-file#dumping-your-gpu-rom).
 
 ## Preparatory steps on Proxmox
 
