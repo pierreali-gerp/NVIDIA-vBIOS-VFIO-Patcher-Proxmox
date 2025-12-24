@@ -4,7 +4,7 @@ All credit goes to [Matoking](https://github.com/Matoking) for providing their s
 
 I just added a brief Preparation section below for users who need to dump their NVIDIA (Pascal series) ROM from Proxmox. This is actually very simple, since Proxmox doesn't run any processes on discrete GPUs by default, such as desktop managers. On the contrary, if you need to dump your GPU's ROM from a Linux distro with a desktop manager running (i.e., any Linux distro with a Graphical User Interface in use), follow the instructions at [this link](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/6\)-Preparation-and-placing-of-the-ROM-file#dumping-your-gpu-rom).
 
-## Preparatory steps on Proxmox
+# Preparatory steps on Proxmox
 
 1. **Disable Secure Boot on your system, if it's enabled.** You can use `mokutil --sb-state` to check this out. You can disable Secure Boot by entering your motherboard's UEFI settings.
 
@@ -61,7 +61,7 @@ I just added a brief Preparation section below for users who need to dump their 
 
 6. Follow the instructions in the next section to patch the saved ROM through Matoking's Python script.
 
-## NVIDIA vBIOS VFIO Patcher instructions
+# NVIDIA vBIOS VFIO Patcher instructions
 **This tool is known to be compatible only with the Pascal series (1xxx) of NVIDIA GPUs.**
 
 nvidia_vbios_vfio_patcher.py is a script that creates a patched/spliced copy of a NVIDIA vBIOS that allows PCI passthrough when using libvirt. This copy of the vBIOS can then be passed to libvirt, allowing the NVIDIA GPU to be used in the guest VM. This can be done by adding the following line to the VM domain XML file.
@@ -78,13 +78,13 @@ This script may be useful if you are using one of the Pascal (1xxx series) serie
 
 The patching process requires a full copy of the clean vBIOS. You can either extract it from the graphics card using [nvflash](https://www.techpowerup.com/download/nvidia-nvflash/) or [GPU-Z](https://www.techpowerup.com/gpuz/) under Windows (recommended), or download one for your specific GPU model from [TechPowerUp](https://www.techpowerup.com/vgabios/).
 
-# DISCLAIMER
+## DISCLAIMER
 
 **Use this script at your own discretion. This script has NOT been tested extensively, and has only been tested with a few GPUs belonging to he Pascal series of NVIDIA GPUs.**
 
 **The script performs only a few rudimentary sanity checks, but no guarantees are made of the validity of the patched ROM!**
 
-# Usage
+## Usage
 
 The script should work with both Python 2 and 3.
 
