@@ -60,6 +60,7 @@ I just added a brief Preparation section below for users who need to dump their 
 5. **Re-enable Secure Boot on your system if you previously disabled it.** From now on, you can turn Secure Boot back on if you wish. To do so, reboot your system, enter the UEFI settings, and revert the changes you made in step 1.
 
 6. Follow the instructions in the next section to patch the saved ROM through Matoking's Python script.
+   >⚠️ As a general security good practice, **never run scripts downloaded from the internet as root**! So log in on Proxmox with a non-root user (or create a new one with `useradd <username> -d <pathToUserHome> --shell /bin/bash` if you haven't yet) before following the instructions below.
 
 # NVIDIA vBIOS VFIO Patcher instructions
 **This tool is known to be compatible only with the Pascal series (1xxx) of NVIDIA GPUs.**
